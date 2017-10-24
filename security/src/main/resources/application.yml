@@ -1,0 +1,40 @@
+server:
+  context-path: /
+  port: 8000
+  error:
+    whitelabel:
+      enabled: false
+spring:
+  application:
+    name: Auth Server Baraholka
+  messages:
+    basename: messages/messages
+    encoding: UTF-8
+  jpa:
+    database: postgresql
+    properties:
+      hibernate:
+        order_inserts: true
+        order_updates: true
+        jdbc:
+          batch_size: 20
+          batch_versioned_data: true
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+
+  datasource:
+    driver-class-name: @datasource.driver@
+    url: @datasource.url@
+    username: @datasource.user@
+    password: @datasource.password@
+    hikari:
+      maximum-pool-size: 15
+logging:
+  path: ./log
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+
+
